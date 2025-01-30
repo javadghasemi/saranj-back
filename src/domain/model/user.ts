@@ -1,46 +1,39 @@
 export class User {
-  private readonly _id: string; // In domain, we typically use private fields and provide getters/setters
-  private readonly _firstName: string;
-  private readonly _lastName: string;
-  private readonly _username: string;
-  private readonly _email: string;
+  private _id: string;
+  private _firstName: string;
+  private _lastName: string;
+  private _email: string;
+  private _mobileNumber: string;
   private _password: string;
   private _isAdmin: boolean;
 
-  constructor(
-    id: string,
-    firstName: string,
-    lastName: string,
-    username: string,
-    email: string,
-    password: string,
-    isAdmin: boolean,
-  ) {
+  public set id(id: string) {
     this._id = id;
+  }
+
+  public set firstName(firstName: string) {
     this._firstName = firstName;
+  }
+
+  public set lastName(lastName: string) {
     this._lastName = lastName;
-    this._username = username;
+  }
+
+  public set email(email: string) {
     this._email = email;
+  }
+
+  public set mobileNumber(mobileNumber: string) {
+    this._mobileNumber = mobileNumber;
+  }
+
+  public set password(password: string) {
     this._password = password;
+  }
+
+  public set isAdmin(isAdmin: boolean) {
     this._isAdmin = isAdmin;
   }
-
-  // Business logic
-  public changePassword(newPassword: string): void {
-    if (this._password === newPassword) {
-      throw new Error('New password cannot be the same as the old password.');
-    }
-    this._password = newPassword;
-  }
-
-  public makeAdmin(): void {
-    this._isAdmin = true;
-  }
-
-  public removeAdmin(): void {
-    this._isAdmin = false;
-  }
-
   // Getters
   public get id(): string {
     return this._id;
@@ -54,12 +47,12 @@ export class User {
     return this._lastName;
   }
 
-  public get username(): string {
-    return this._username;
-  }
-
   public get email(): string {
     return this._email;
+  }
+
+  public get mobileNumber(): string {
+    return this._mobileNumber;
   }
 
   public get password(): string {

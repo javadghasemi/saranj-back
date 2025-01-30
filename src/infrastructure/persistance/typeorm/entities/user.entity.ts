@@ -21,10 +21,10 @@ export class UserEntity {
   lastName: string;
 
   @Column({ unique: true })
-  username: string;
+  email: string;
 
   @Column({ unique: true })
-  email: string;
+  mobileNumber: string;
 
   @Column()
   password: string;

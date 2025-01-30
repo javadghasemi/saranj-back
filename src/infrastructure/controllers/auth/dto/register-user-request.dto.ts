@@ -1,7 +1,7 @@
 export class RegisterUserRequestDto {
   firstName: string;
   lastName: string;
-  username: string;
+  mobileNumber: string;
   email: string;
   password: string;
 }

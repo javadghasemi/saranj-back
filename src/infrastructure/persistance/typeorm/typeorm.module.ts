@@ -6,6 +6,8 @@ import { EnvironmentConfigService } from '../../config/environment-config/enviro
 import { UserRepository } from '../../../application/ports/user.repository';
 import { TypeormUserRepository } from './repositories/typeorm-user.repository';
 import { UserEntity } from './entities/user.entity';
+import { AddressEntity } from './entities/address.entity';
+import { ProductEntity } from './entities/product.entity';
 
 @Module({
   imports: [
@@ -14,7 +16,7 @@ import { UserEntity } from './entities/user.entity';
       inject: [EnvironmentConfigService],
       useFactory: getTypeOrmModuleOptions,
     }),
-    TypeOrmModule.forFeature([UserEntity]),
+    TypeOrmModule.forFeature([UserEntity, AddressEntity, ProductEntity]),
     EnvironmentConfigModule,
   ],
   providers: [
@@ -23,5 +25,6 @@ import { UserEntity } from './entities/user.entity';
       useClass: TypeormUserRepository,
     },
   ],
+  exports: [UserRepository],
 })
 export class TypeormModule {}

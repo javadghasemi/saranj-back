@@ -19,17 +19,29 @@ export class EnvironmentVariables {
   NODE_ENV: Environment;
 
   @IsString()
+  JWT_SECRET: string;
+
+  @IsString()
+  JWT_EXPIRATION_TIME: string;
+
+  @IsString()
   DATABASE_HOST: string;
+
   @IsNumber()
   DATABASE_PORT: number;
+
   @IsString()
   DATABASE_USER: string;
+
   @IsString()
   DATABASE_PASSWORD: string;
+
   @IsString()
   DATABASE_NAME: string;
+
   @IsString()
   DATABASE_SCHEMA: string;
+
   @IsBoolean()
   DATABASE_SYNCHRONIZE: boolean;
 }

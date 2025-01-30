@@ -1,10 +1,10 @@
 import { join, resolve } from 'node:path';
 
-import { Module } from '@nestjs/common';
+import { Global, Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { EnvironmentConfigService } from './environment-config.service';
 
-console.log(resolve(join('env', 'local.env')));
+@Global()
 @Module({
   imports: [
     ConfigModule.forRoot({
